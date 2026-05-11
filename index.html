@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ShopLite — quality picks at honest prices. Browse electronics, books, clothing and home essentials." />
+  <meta name="color-scheme" content="light dark" />
+  <title>ShopLite — Quality picks. Honest prices.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="landing">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo-link" aria-label="ShopLite home"><h1 class="logo">🛍️ ShopLite</h1></a>
+      <div class="search-wrap">
+        <label class="visually-hidden" for="search">Search products</label>
+        <input id="search" type="search" placeholder="Search products… (press Enter)" autocomplete="off" />
+      </div>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon-light" aria-hidden="true">🌙</span>
+        <span class="theme-icon-dark" aria-hidden="true">☀️</span>
+      </button>
+      <button id="cart-toggle" class="cart-toggle" type="button" aria-label="Open cart" aria-expanded="false">
+        <span aria-hidden="true">🛒</span>
+        <span id="cart-count" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" aria-label="Welcome">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Welcome to ShopLite</p>
+        <h2 class="hero-title">Quality picks.<br/>Honest prices.</h2>
+        <p class="hero-sub">A small, hand-picked catalog of everyday essentials across electronics, books, clothing and home.</p>
+        <div class="hero-cta">
+          <a href="/shop.html" class="btn btn-primary btn-lg">Shop now →</a>
+          <a href="/shop.html?sort=rating" class="btn btn-ghost btn-lg">Top rated</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="stat-products">15</strong><span>products</span></div>
+          <div><strong id="stat-categories">4</strong><span>categories</span></div>
+          <div><strong id="stat-avg">4.5★</strong><span>avg rating</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="float-card float-1">🎧</div>
+        <div class="float-card float-2">📘</div>
+        <div class="float-card float-3">👟</div>
+        <div class="float-card float-4">☕</div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="features-bar" aria-label="Why ShopLite">
+        <div class="feature"><span class="feature-icon" aria-hidden="true">🚚</span><span>Free shipping over $50</span></div>
+        <div class="feature"><span class="feature-icon" aria-hidden="true">🔒</span><span>Secure checkout</span></div>
+        <div class="feature"><span class="feature-icon" aria-hidden="true">↩️</span><span>30-day returns</span></div>
+        <div class="feature"><span class="feature-icon" aria-hidden="true">⚡</span><span>Fast delivery</span></div>
+      </div>
+    </section>
+
+    <section class="section container" aria-label="Categories">
+      <div class="section-head">
+        <h2>Shop by category</h2>
+        <a href="/shop.html" class="section-link">View all →</a>
+      </div>
+      <div id="category-cards" class="category-cards"></div>
+    </section>
+
+    <section class="section container" aria-label="Top rated products">
+      <div class="section-head">
+        <h2>Top rated</h2>
+        <a href="/shop.html?sort=rating" class="section-link">See more →</a>
+      </div>
+      <div id="featured-grid" class="product-grid"></div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-inner">
+        <h2>Ready to start shopping?</h2>
+        <p>Browse the full catalog with filters, search and sort.</p>
+        <a href="/shop.html" class="btn btn-primary btn-lg">Browse all products →</a>
+      </div>
+    </section>
+  </main>
+
+  <aside id="cart-drawer" class="cart-drawer" hidden aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="cart-close" class="icon-btn" type="button" aria-label="Close cart">✕</button>
+    </div>
+    <ul id="cart-items" class="cart-items"></ul>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+      <button id="cart-checkout" class="btn btn-primary" type="button">Checkout</button>
+      <button id="cart-clear" class="btn btn-ghost" type="button">Clear cart</button>
+    </div>
+  </aside>
+
+  <div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close icon-btn" type="button" data-close aria-label="Close">✕</button>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script type="module" src="/js/landing.js"></script>
+</body>
+</html>

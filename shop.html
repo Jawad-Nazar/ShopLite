@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ShopLite — browse, filter and buy from a small product catalog." />
+  <meta name="color-scheme" content="light dark" />
+  <title>Shop — ShopLite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo-link" aria-label="Back to home"><h1 class="logo">🛍️ ShopLite</h1></a>
+      <div class="search-wrap">
+        <label class="visually-hidden" for="search">Search products</label>
+        <input id="search" type="search" placeholder="Search products… (press / to focus)" autocomplete="off" />
+      </div>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon-light" aria-hidden="true">🌙</span>
+        <span class="theme-icon-dark" aria-hidden="true">☀️</span>
+      </button>
+      <button id="cart-toggle" class="cart-toggle" type="button" aria-label="Open cart" aria-expanded="false">
+        <span aria-hidden="true">🛒</span>
+        <span id="cart-count" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <aside class="filters" aria-label="Product filters">
+      <h2>Categories</h2>
+      <nav id="category-list" class="category-list" aria-label="Categories"></nav>
+
+      <h2>Sort by</h2>
+      <div class="filter-group">
+        <label class="visually-hidden" for="sort">Sort by</label>
+        <select id="sort">
+          <option value="default">Default</option>
+          <option value="price-asc">Price (low to high)</option>
+          <option value="price-desc">Price (high to low)</option>
+          <option value="rating">Top rated</option>
+          <option value="name">Name (A–Z)</option>
+        </select>
+      </div>
+
+      <button id="reset" class="btn btn-ghost" type="button">Reset filters</button>
+
+      <div class="shortcuts" aria-label="Keyboard shortcuts">
+        <h3>Shortcuts</h3>
+        <ul>
+          <li><kbd>/</kbd>Focus search</li>
+          <li><kbd>C</kbd>Toggle cart</li>
+          <li><kbd>Esc</kbd>Close panel</li>
+        </ul>
+      </div>
+    </aside>
+
+    <section class="catalog" aria-label="Products">
+      <div class="catalog-meta">
+        <p id="result-count">Loading…</p>
+      </div>
+      <div id="product-grid" class="product-grid" aria-live="polite"></div>
+      <p id="status" class="status" role="status"></p>
+    </section>
+  </main>
+
+  <aside id="cart-drawer" class="cart-drawer" hidden aria-label="Shopping cart">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="cart-close" class="icon-btn" type="button" aria-label="Close cart">✕</button>
+    </div>
+    <ul id="cart-items" class="cart-items"></ul>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+      <button id="cart-checkout" class="btn btn-primary" type="button">Checkout</button>
+      <button id="cart-clear" class="btn btn-ghost" type="button">Clear cart</button>
+    </div>
+  </aside>
+
+  <div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close icon-btn" type="button" data-close aria-label="Close">✕</button>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
